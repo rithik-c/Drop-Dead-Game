@@ -1,0 +1,2 @@
+class AutoDropDead < ApplicationRecord
+end

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @auto_drop_dead %>
+
+<div>
+  <%= link_to "Edit this auto drop dead", edit_auto_drop_dead_path(@auto_drop_dead) %> |
+  <%= link_to "Back to auto drop deads", auto_drop_deads_path %>
+
+  <%= button_to "Destroy this auto drop dead", @auto_drop_dead, method: :delete %>
+</div>

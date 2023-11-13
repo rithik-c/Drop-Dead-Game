@@ -1,0 +1,17 @@
+<%= form_with(model: player_manager) do |form| %>
+  <% if player_manager.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(player_manager.errors.count, "error") %> prohibited this player_manager from being saved:</h2>
+
+      <ul>
+        <% player_manager.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
