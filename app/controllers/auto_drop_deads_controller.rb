@@ -22,7 +22,11 @@ class AutoDropDeadsController < ApplicationController
   # POST /auto_drop_deads or /auto_drop_deads.json
   def create
     @auto_drop_dead = AutoDropDead.new(auto_drop_dead_params)
-    @auto_drop_dead.play_game(6, 3, 2)
+    
+    @game = Logic::AutoDropDead.new # Game logic class instance
+    @game_output = @game.play_game(@auto_drop_dead.sides, @auto_drop_dead.dice_count, @auto_drop_dead.player_count)
+
+    Rails.logger.info @game_output
 
     respond_to do |format|
       if @auto_drop_dead.save
