@@ -8,6 +8,8 @@ class AutoDropDeadsController < ApplicationController
 
   # GET /auto_drop_deads/1 or /auto_drop_deads/1.json
   def show
+    @auto_drop_dead = AutoDropDead.find(params[:id])
+    @game_output = flash[:game_output]
   end
 
   # GET /auto_drop_deads/new
@@ -25,6 +27,7 @@ class AutoDropDeadsController < ApplicationController
     
     @game = Logic::AutoDropDead.new # Game logic class instance
     @game_output = @game.play_game(@auto_drop_dead.sides, @auto_drop_dead.dice_count, @auto_drop_dead.player_count)
+    flash[:game_output] = @game_output
 
     Rails.logger.info @game_output
 
