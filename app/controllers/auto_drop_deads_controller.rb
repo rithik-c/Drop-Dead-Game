@@ -22,6 +22,7 @@ class AutoDropDeadsController < ApplicationController
   # POST /auto_drop_deads or /auto_drop_deads.json
   def create
     @auto_drop_dead = AutoDropDead.new(auto_drop_dead_params)
+    @auto_drop_dead.play_game(6, 3, 2)
 
     respond_to do |format|
       if @auto_drop_dead.save
