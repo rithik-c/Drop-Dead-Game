@@ -1,0 +1,2 @@
+module AutoDropDeadsHelper
+end

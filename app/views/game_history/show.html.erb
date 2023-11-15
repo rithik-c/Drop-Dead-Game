@@ -1,0 +1,9 @@
+<h2>Game History</h2>
+<ul>
+  <% @game_history.auto_drop_deads.each do |auto_drop_dead| %>
+    <li>
+      ID: <%= auto_drop_dead.id %><br>
+      Created at: <%= auto_drop_dead.created_at.strftime("%B %e, %Y %H:%M:%S") %>
+    </li>
+  <% end %>
+</ul>
