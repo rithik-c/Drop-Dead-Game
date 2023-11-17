@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div>
+  <%= link_to "Play New Game", new_auto_drop_dead_path %> |
+  <%= link_to "View Game History", game_history_path %>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>

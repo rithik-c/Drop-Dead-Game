@@ -1,0 +1,20 @@
+<body style="font-family: Arial, sans-serif; background-color: #f2f2f2; text-align: center; padding: 100px;">
+
+  <div style="background-color: #fff; width: 300px; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); display: inline-block;">
+    <h1 style="color: #333;">Login</h1>
+    
+    <form action="<%= login_path %>" method="post" style="text-align: left;">
+      <%= csrf_meta_tags %>
+
+      <label for="email" style="font-weight: bold;">Email:</label><br>
+      <input type="email" id="email" name="email" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
+
+      <label for="password" style="font-weight: bold;">Password:</label><br>
+      <input type="password" id="password" name="password" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
+
+      <button type="submit" style="background-color: #333; color: #fff; padding: 10px 20px; margin: 10px 0 0 0; border: none; border-radius: 5px; cursor: pointer;">Sign In</button>
+
+    <p style="margin-top: 10px;">Don't have an account? <a href="/signup" style="color: #474747; text-decoration: underline;">Sign Up</a></p>
+  </div>
+
+</body>

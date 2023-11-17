@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
+
+  root 'users#signin'
+  get '/signin', to: 'users#signin'
+  post '/signin', to: 'users#login', as: 'login'
+  get '/signup', to: 'users#signup'
+  post '/signup', to: 'users#create', as: 'create_user'
+  get '/user/:id', to: 'users#show', as: 'user'
+  delete '/signout', to: 'users#signout'
+
+  # resources :users
+  # resources :game_histories, only: [:show]
+  # resources :auto_drop_deads
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "application#hello"
+  # root "application#hello"
 end
