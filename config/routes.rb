@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create', as: 'create_user'
   get '/user/:id', to: 'users#show', as: 'user'
   delete '/signout', to: 'users#signout'
+  delete '/user/:id', to: 'users#destroy'
 
   resources :users
   resources :game_histories, only: [:show]

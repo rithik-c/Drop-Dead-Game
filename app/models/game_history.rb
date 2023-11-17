@@ -1,4 +1,4 @@
 class GameHistory < ApplicationRecord
   belongs_to :user
-  has_one :game_history
+  has_many :auto_drop_deads, dependent: :destroy
 end
