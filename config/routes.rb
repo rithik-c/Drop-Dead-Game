@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get '/user/:id', to: 'users#show', as: 'user'
   delete '/signout', to: 'users#signout'
 
-  # resources :users
-  # resources :game_histories, only: [:show]
-  # resources :auto_drop_deads
+  resources :users
+  resources :game_histories, only: [:show]
+  resources :auto_drop_deads
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

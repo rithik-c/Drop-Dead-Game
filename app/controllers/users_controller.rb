@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.create_game_history
       # Successfully created the user, redirect to their profile
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
       # Handle validation errors
       flash[:alert] = 'Failed to create the user'
@@ -98,11 +98,5 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:email, :password, :username)
-    end
-
-    def user_authenticated(email, password)
-      # Implement your user authentication logic here
-      # Check if the provided email and password are correct
-      # Return true if authenticated, otherwise false
     end
 end

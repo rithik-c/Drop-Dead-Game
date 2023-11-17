@@ -6,13 +6,13 @@
     <form action="<%= signup_path %>" method="post" style="text-align: left;">
       
       <label for="username" style="font-weight: bold;">Username:</label><br>
-      <input type="username" id="username" name="username" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
+      <input type="username" id="username" name="user[username]" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
       
       <label for="email" style="font-weight: bold;">Email:</label><br>
-      <input type="email" id="email" name="email" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
+      <input type="email" id="email" name="user[email]" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
 
       <label for="password" style="font-weight: bold;">Password:</label><br>
-      <input type="password" id="password" name="password" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
+      <input type="password" id="password" name="user[password]" required style="width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
 
       <button type="submit" style="background-color: #333; color: #fff; padding: 10px 20px; margin: 10px 0 0 0; border: none; border-radius: 5px; cursor: pointer;">Register</button>
     </form>
