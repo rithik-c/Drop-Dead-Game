@@ -18,14 +18,15 @@ class UsersController < ApplicationController
     if user
       if user.password == params[:password]
         # session[:user_id] = user.id
-        redirect_to user_path(user.id)
+        flash[:notice] = 'Successfully signed in!'
+      redirect_to user_path(user.id)
       else
-        flash.now[:alert] = 'Invalid password'
-        render signin
+        flash[:alert] = 'Invalid password'
+        redirect_to signin_path
       end
     else
-      flash.now[:alert] = 'Can\'t find your account, Please sign up!'
-      render signin
+      flash.keep[:alert] = 'Can\'t find your account, please sign up!'
+      redirect_to signin_path
     end
   end
 
