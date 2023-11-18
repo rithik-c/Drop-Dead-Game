@@ -4,11 +4,8 @@
 
 <div>
   <%= link_to "Play New Game", new_auto_drop_dead_path %> |
-  <% if @user.game_history.present? %>
-    <%= link_to "View Game History", game_history_path(@user.game_history) %>
-  <% else %>
-    <p>No game history available.</p>
-  <% end %>
+  <%= link_to "View Game History", game_history_path(@user.game_history) %> |
+  <%= link_to "Exit", signin_path %>
 </div>
 
 <br>

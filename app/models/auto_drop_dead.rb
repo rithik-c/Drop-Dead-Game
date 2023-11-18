@@ -6,6 +6,6 @@ class AutoDropDead < ApplicationRecord
   private
 
   def set_datetime
-    self.datetime = Time.now
+    self.datetime = Time.current
   end
 end
