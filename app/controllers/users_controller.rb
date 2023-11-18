@@ -12,12 +12,10 @@ class UsersController < ApplicationController
 
   def login
     # Check if the user exists and sign them in
-    # If successful, redirect to the user's profile page
     user = User.find_by(email: params[:email])
 
     if user
       if user.password == params[:password]
-        # session[:user_id] = user.id
         flash[:success] = 'Successfully signed in!'
       redirect_to user_path(user.id)
       else
@@ -43,19 +41,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    # respond_to do |format|
-    #   if @user.save
-    #     # Create a GameHistory object associated with the user
-    #     @user.create_game_history
-        
-    #     format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-    #     format.json { render :show, status: :created, location: @user }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
-
     if @user.save
       @user.create_game_history
       # Successfully created the user, redirect to their profile
@@ -77,7 +62,6 @@ class UsersController < ApplicationController
 
   def signout
     # Sign the user out and redirect to sign-in page
-    # Implement your sign-out logic here
     redirect_to signin_path
   end
 
