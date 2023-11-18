@@ -46,7 +46,8 @@ class AutoDropDeadsController < ApplicationController
 
     respond_to do |format|
       if @auto_drop_dead.save
-        format.html { redirect_to show_result_auto_drop_dead_path(@auto_drop_dead), notice: "Auto drop dead was successfully created." }
+        flash[:notice] = "Game was successfully created."
+        format.html { redirect_to show_result_auto_drop_dead_path(@auto_drop_dead) }
         format.json { render :show, status: :created, location: @auto_drop_dead }
       else
         format.html { render :new, status: :unprocessable_entity }

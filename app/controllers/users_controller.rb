@@ -62,6 +62,7 @@ class UsersController < ApplicationController
 
   def signout
     # Sign the user out and redirect to sign-in page
+    flash[:success] = 'Successfully Logged Out!'
     redirect_to signin_path
   end
 
