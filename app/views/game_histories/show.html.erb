@@ -1,17 +1,111 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game History</title>
+  <style>
+    body {
+      background-image: url('/assets/gradient-0660fe7b2a25770e6102da3b0759417056cf04082afa51ea9ef9d073e9edac0c.svg');
+      background-repeat: no-repeat;
+      background-size: stretch;
+      background-position: center center
+      padding: 0;
+      margin: 0;
+    }
 
-<h1>Game History</h1>
+    .container {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-align: center;
+      width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      justify-content: center;
+      align-items: center;
+    }
 
-<ol>
-  <% @game_history.auto_drop_deads.each_with_index do |auto_drop_dead, index| %>
-    <li>
-      <%= link_to "Game ##{index+1} (#{auto_drop_dead.datetime.strftime("%Y-%m-%d || %H:%M")})", auto_drop_dead_path(auto_drop_dead) %>
-    </li>
-  <% end %>
-</ol>
+    .header {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
+    }
 
-<% if @game_history.user.present? %>
-  <%= link_to 'Back to User', user_path(@game_history.user) %>
-<% else %>
-  <p>User not found.</p>
-<% end %>
+    h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    .game-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .game-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .game-link {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .date {
+      color: #777;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #e74c3c;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: #c0392b;
+    }
+
+    a.game-link {
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover.game-link{
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Game History</h1>
+    </div>
+
+    <ul class="game-list">
+      <% @game_history.auto_drop_deads.each_with_index do |auto_drop_dead, index| %>
+        <li class="game-item">
+          <a href="<%= auto_drop_dead_path(auto_drop_dead) %>" class="game-link">Game <%= index + 1 %></a>
+          <span class="date"><%= auto_drop_dead.datetime.strftime("%Y-%m-%d | %H:%M") %></span>
+        </li>
+      <% end %>
+    </ul>
+
+    <br>
+    <p><a href="<%= user_path(@game_history.user) %>" class="back-link">Back to User</a></p>
+  </div>
+</body>
+</html>
