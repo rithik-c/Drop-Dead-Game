@@ -1,17 +1,28 @@
-<div id="<%= dom_id auto_drop_dead %>">
-  <p>
-    <strong>Sides:</strong>
-    <%= auto_drop_dead.sides %>
-  </p>
+<head>
+  <%= stylesheet_link_tag "auto_drop_dead", "data-turbo-track": "reload" %>
+</head>
+<body>
+  <center>
+    <div id="<%= dom_id auto_drop_dead %>">
+      <p>
+        <strong>Sides:</strong>
+        <%= auto_drop_dead.sides %>
+      </p>
 
-  <p>
-    <strong>Dice count:</strong>
-    <%= auto_drop_dead.dice_count %>
-  </p>
+      <p>
+        <strong>Dice count:</strong>
+        <%= auto_drop_dead.dice_count %>
+      </p>
 
-  <p>
-    <strong>Player count:</strong>
-    <%= auto_drop_dead.player_count %>
-  </p>
+      <p>
+        <strong>Player count:</strong>
+        <%= auto_drop_dead.player_count %>
+      </p>
+    
+      <div class="terminal-output">
+        <%= simple_format(auto_drop_dead.game_output) %>
+      </div>
 
-</div>
+    </div>
+  </center>
+</body>

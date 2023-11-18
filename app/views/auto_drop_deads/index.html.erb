@@ -3,8 +3,8 @@
 <h1>Auto drop deads</h1>
 
 <div id="auto_drop_deads">
-  <% @auto_drop_deads.each do |auto_drop_dead| %>
-    <%= render auto_drop_dead %>
+  <% @auto_drop_deads.each_with_index do |auto_drop_dead, index| %>
+    <%= "#{index+1}) #{auto_drop_dead.sides} Sides, #{auto_drop_dead.dice_count} Dice, #{auto_drop_dead.player_count} Players" %>
     <p>
       <%= link_to "Show this auto drop dead", auto_drop_dead %>
     </p>

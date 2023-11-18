@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_18_024319) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_18_025203) do
   create_table "auto_drop_deads", force: :cascade do |t|
     t.integer "sides"
     t.integer "dice_count"
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_024319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "datetime"
+    t.string "game_output"
     t.index ["game_history_id"], name: "index_auto_drop_deads_on_game_history_id"
   end
 

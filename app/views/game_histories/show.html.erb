@@ -5,7 +5,7 @@
 <ol>
   <% @game_history.auto_drop_deads.each_with_index do |auto_drop_dead, index| %>
     <li>
-      <%= link_to "AutoDropDead ##{index}", auto_drop_dead_path(auto_drop_dead) %>
+      <%= link_to "Game ##{index+1} (#{auto_drop_dead.datetime.strftime("%Y-%m-%d || %H:%M")})", auto_drop_dead_path(auto_drop_dead) %>
     </li>
   <% end %>
 </ol>
