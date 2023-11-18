@@ -73,8 +73,7 @@
     </div>
     <%= render @auto_drop_dead %>
     <br><br>
-    <a href="<%= new_auto_drop_dead_path %>" class="button">Play Again</a>
-    <a href="<%= new_auto_drop_dead_path %>" class="button">Change Settings</a>
+    <a href="<%= game_history_path(User.find(@user_id).game_history.id) %>" class="button">Go Back</a>
     <a href="/signin" class="button exit">Exit</a>
   </div>
 </body>
