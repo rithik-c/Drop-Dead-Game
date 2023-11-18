@@ -2,6 +2,14 @@
 
 <h1>Game History</h1>
 
+<ol>
+  <% @game_history.auto_drop_deads.each_with_index do |auto_drop_dead, index| %>
+    <li>
+      <%= link_to "AutoDropDead ##{index}", auto_drop_dead_path(auto_drop_dead) %>
+    </li>
+  <% end %>
+</ol>
+
 <% if @game_history.user.present? %>
   <%= link_to 'Back to User', user_path(@game_history.user) %>
 <% else %>
