@@ -8,11 +8,13 @@ class AutoDropDeadsController < ApplicationController
 
   # GET /auto_drop_deads/1 or /auto_drop_deads/1.json
   def show
+    @user_id = session[:user_id]
   end
 
   # GET /auto_drop_deads/new
   def new
     @auto_drop_dead = AutoDropDead.new
+    @user_id = session[:user_id]
   end
 
   # GET /auto_drop_deads/1/edit
@@ -22,6 +24,12 @@ class AutoDropDeadsController < ApplicationController
   # POST /auto_drop_deads or /auto_drop_deads.json
   def create
     @auto_drop_dead = AutoDropDead.new(auto_drop_dead_params)
+    # @game_output = game.play_game(@auto_drop_dead.sides, @auto_drop_dead.dice_count, @auto_drop_dead.player_count)
+    @user_id = session[:user_id]
+    user = User.find(@user_id)
+    game_history = user.game_history
+
+    @auto_drop_dead.game_history_id = game_history.id
 
     respond_to do |format|
       if @auto_drop_dead.save
@@ -65,6 +73,6 @@ class AutoDropDeadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def auto_drop_dead_params
-      params.require(:auto_drop_dead).permit(:sides, :dice_count, :player_count, :game_history_id)
+      params.require(:auto_drop_dead).permit(:sides, :dice_count, :player_count)
     end
 end

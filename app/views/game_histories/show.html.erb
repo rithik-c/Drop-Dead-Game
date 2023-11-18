@@ -1,3 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Game History</h1>
+
+<% if @game_history.user.present? %>
+  <%= link_to 'Back to User', user_path(@game_history.user) %>
+<% else %>
+  <p>User not found.</p>
+<% end %>

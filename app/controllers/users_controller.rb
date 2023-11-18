@@ -72,6 +72,7 @@ class UsersController < ApplicationController
   def show
     # Display the user's information based on the provided ID
     @user = User.find(params[:id])
+    session[:user_id] = @user.id
   end
 
   def signout
