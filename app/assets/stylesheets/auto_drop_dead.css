@@ -1,12 +1,10 @@
 .terminal-output {
-    font-family: 'Roboto Mono', 'Courier New', monospace;
-    font-size: 14px;
-    text-align: center;
-    /* color: #ffffff; Classic green on black, or choose your color */
-    /* background-color: #000000; Black background */
-    white-space: pre-wrap; /* Preserves whitespace and line breaks */
-    padding: 10px;
-    width: 50%;
-    border: 1px solid #333333;
-  }
-  
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 900;
+  white-space: pre-wrap;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #333333;
+}
