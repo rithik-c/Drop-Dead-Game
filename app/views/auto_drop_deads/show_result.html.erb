@@ -73,8 +73,10 @@
     </div>
     <%= render @auto_drop_dead %>
     <br><br>
-    <a href="<%= new_auto_drop_dead_path %>" class="button">Play Again</a>
-    <a href="<%= new_auto_drop_dead_path %>" class="button">Change Settings</a>
-    <a href="/signin" class="button exit">Exit</a>
+    <div style='display: inline;'>
+      <%= button_to 'Play Again', replay_auto_drop_dead_path(@auto_drop_dead), method: :post, class: 'button', style: "font-family: Trebuchet MS; border-style: none;" %>
+      <a href="<%= new_auto_drop_dead_path %>" class="button">Change Settings</a>
+      <a href="/signin" class="button exit">Exit</a>
+    </div>
   </div>
 </body>

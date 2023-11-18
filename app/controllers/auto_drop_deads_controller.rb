@@ -56,6 +56,29 @@ class AutoDropDeadsController < ApplicationController
     end
   end
 
+  def replay
+    puts "Replay action called"
+    current_game = AutoDropDead.find(params[:id])
+    @new_game = AutoDropDead.new(sides: current_game.sides, dice_count: current_game.dice_count, player_count: current_game.player_count)
+
+    @user_id = current_game.game_history.user
+    @new_game.game_history_id = current_game.game_history
+
+    @game = Logic::AutoDropDead.new
+    @new_game.game_output = @game.play_game(current_game.sides, current_game.dice_count, current_game.player_count)
+
+    respond_to do |format|
+      if @new_game.save
+        flash[:notice] = "Game was replayed!"
+        format.html { redirect_to show_result_auto_drop_dead_path(@new_game) }
+        format.json { render :show, status: :created, location: @new_game }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @new_game.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /auto_drop_deads/1 or /auto_drop_deads/1.json
   def update
     respond_to do |format|
