@@ -4,7 +4,11 @@
 
 <div>
   <%= link_to "Play New Game", new_auto_drop_dead_path %> |
-  <%= link_to "View Game History", game_history_path %>
+  <% if @user.game_history.present? %>
+    <%= link_to "View Game History", game_history_path(@user.game_history) %>
+  <% else %>
+    <p>No game history available.</p>
+  <% end %>
 </div>
 
 <br>
