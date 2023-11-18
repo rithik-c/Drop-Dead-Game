@@ -135,7 +135,7 @@
       <ul class="game-list">
         <% @game_history.auto_drop_deads.each_with_index do |auto_drop_dead, index| %>
           <li class="game-item">
-            <a href="<%= auto_drop_dead_path(auto_drop_dead) %>" class="game-link">Game <%= index + 1 %></a>
+            <a href="<%= show_game_auto_drop_dead_path(auto_drop_dead) %>" class="game-link">Game <%= index + 1 %></a>
             <span class="date"><%= image_tag 'clock-regular.svg', alt: 'clock', style: 'stroke: red; height: 1em; vertical-align: -0.2em;;' %>
             <%= auto_drop_dead.datetime.strftime("%Y-%m-%d | %H:%M") %></span>
           </li>

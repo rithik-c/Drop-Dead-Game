@@ -8,8 +8,18 @@ class AutoDropDeadsController < ApplicationController
 
   # GET /auto_drop_deads/1 or /auto_drop_deads/1.json
   def show
+    @auto_drop_dead = AutoDropDead.find(params[:id])
     @user_id = session[:user_id]
-    session.delete(:created)
+  end
+
+  def show_result
+    @auto_drop_dead = AutoDropDead.find(params[:id])
+    @user_id = session[:user_id]
+  end
+  
+  def show_game
+    @auto_drop_dead = AutoDropDead.find(params[:id])
+    @user_id = session[:user_id]
   end
 
   # GET /auto_drop_deads/new
@@ -36,7 +46,7 @@ class AutoDropDeadsController < ApplicationController
 
     respond_to do |format|
       if @auto_drop_dead.save
-        format.html { redirect_to auto_drop_dead_url(@auto_drop_dead), notice: "Game has been created!" }
+        format.html { redirect_to show_result_auto_drop_dead_path(@auto_drop_dead), notice: "Auto drop dead was successfully created." }
         format.json { render :show, status: :created, location: @auto_drop_dead }
       else
         format.html { render :new, status: :unprocessable_entity }

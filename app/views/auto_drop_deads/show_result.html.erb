@@ -1,0 +1,80 @@
+<head>
+  <style>
+    .terminal-output {
+      font-family: 'Roboto Mono', 'Courier New', monospace;
+      font-size: 14px;
+      text-align: center;
+      font-weight: 900;
+      white-space: pre-wrap;
+      padding: 10px;
+      width: 80%;
+      border: 1px solid #333333;
+    }
+      
+    body {
+      # background-image: url('/assets/gradient-1d13df7656b4774a214d4eb453812158360070342383b1b733f952e39b16567e.svg');
+      # background-repeat: no-repeat;
+      # background-size: stretch;
+      background: linear-gradient(to bottom, #24659e, #0e4d8c);
+      background-position: center center;
+      padding: 0;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-align: center;
+      width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .exit {
+      background-color: #e74c3c !important;
+    }
+
+    .exit:hover {
+      background-color: #c0392b !important;
+    }
+
+    .button {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #24659e;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0e4d8c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Game Results</h1>
+    </div>
+    <%= render @auto_drop_dead %>
+    <br><br>
+    <a href="<%= new_auto_drop_dead_path %>" class="button">Play Again</a>
+    <a href="<%= new_auto_drop_dead_path %>" class="button">Change Settings</a>
+    <a href="/signin" class="button exit">Exit</a>
+  </div>
+</body>
