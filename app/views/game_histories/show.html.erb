@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game History</title>
+    <style>
+      body {
+        background-image: url('/assets/gradient-1d13df7656b4774a214d4eb453812158360070342383b1b733f952e39b16567e.svg');
+        background-repeat: no-repeat;
+        background-size: stretch;
+        background-position: center center;
+        padding: 0;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+
+      .container {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        width: 800px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .header {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin: 0;
+      }
+
+      .game-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+
+      .game-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .game-link {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .date {
+        color: #777;
+      }
+
+      .back-link {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #e74c3c;
+        transition: background-color 0.3s ease;
+      }
+
+      .back-link:hover {
+        background-color: #c0392b;
+      }
+
+      a.game-link {
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      a:hover.game-link {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .input-field {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+      }
+
+      .submit-button {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .submit-button:hover {
+        background-color: #0056b3;
+      }
+
+      .clock {
+        height: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Game History</h1>
+      </div>
+
+      <ul class="game-list">
+        <% @game_history.auto_drop_deads.each_with_index do |auto_drop_dead, index| %>
+          <li class="game-item">
+            <a href="<%= show_game_auto_drop_dead_path(auto_drop_dead) %>" class="game-link">Game <%= index + 1 %></a>
+            <span class="date"><%= image_tag 'clock-regular.svg', alt: 'clock', style: 'stroke: red; height: 1em; vertical-align: -0.2em;;' %>
+            <%= auto_drop_dead.datetime.strftime("%Y-%m-%d | %H:%M") %></span>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class="button-container">
+        <a href="<%= user_path(@game_history.user) %>" class="back-link">Back to User</a>
+        
+        <form method="get" action="<%= redirect_to_game_path %>">
+          <div class="input-container">
+            <input type="number" class="input-field" name="game_number" placeholder="Enter Game Number">
+            <button class="submit-button" type="submit">Submit</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>

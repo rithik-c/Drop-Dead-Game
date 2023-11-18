@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Auto Drop Dead</title>
+  <style>
+    body {
+      background-image: url('/assets/gradient-1d13df7656b4774a214d4eb453812158360070342383b1b733f952e39b16567e.svg');
+      background-repeat: no-repeat;
+      background-size: stretch;
+      background-position: center center;
+      padding: 0;
+      margin-top: 20px;
+    }
+    
+    .container {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-align: center;
+      width: 450px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .label-text {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-field {
+      width: calc(100% - 30px);
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .error-message {
+      color: red;
+    }
+
+    .button {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #24659e;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0e4d8c;
+    }
+
+    .exit {
+      background-color: #e74c3c !important;
+    }
+
+    .exit:hover {
+      background-color: #c0392b !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>New Auto Drop Dead</h1>
+
+    <%= form_with(model: @auto_drop_dead) do |form| %>
+      <div class="form-field">
+        <%= form.label :sides, class: "label-text" %>
+        <%= form.number_field :sides, class: "input-field" %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :dice_count, class: "label-text" %>
+        <%= form.number_field :dice_count, class: "input-field" %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :player_count, class: "label-text" %>
+        <%= form.number_field :player_count, class: "input-field" %>
+      </div>
+      <br>
+
+      <div class="form-actions">
+        <%= form.submit "Submit", class: "button", style: "font-family: Trebuchet MS; border-style: none;" %>
+        <a href="<%= user_path(@user_id) %>" class="button exit">Go Back</a>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
