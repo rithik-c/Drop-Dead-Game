@@ -62,18 +62,18 @@ class AutoDropDeadsController < ApplicationController
     @new_game = AutoDropDead.new(sides: current_game.sides, dice_count: current_game.dice_count, player_count: current_game.player_count)
 
     @user_id = current_game.game_history.user
-    @new_game.game_history_id = current_game.game_history
+    @new_game.game_history = GameHistory.find(current_game.game_history.id)
 
     @game = Logic::AutoDropDead.new
     @new_game.game_output = @game.play_game(current_game.sides, current_game.dice_count, current_game.player_count)
-
+    
     respond_to do |format|
       if @new_game.save
         flash[:notice] = "Game was replayed!"
         format.html { redirect_to show_result_auto_drop_dead_path(@new_game) }
         format.json { render :show, status: :created, location: @new_game }
       else
-        format.html { render :new, status: :unprocessable_entity }
+                format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @new_game.errors, status: :unprocessable_entity }
       end
     end
