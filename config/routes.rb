@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :game_histories, only: [:show]
-  resources :auto_drop_deads
+  resources :auto_drop_deads do
+    member do
+      post 'replay'
+    end
+  end
   get 'game_history/redirect_to_game', to: 'game_histories#redirect_to_game', as: 'redirect_to_game'
   get 'auto_drop_deads/:id/show_game', to: 'auto_drop_deads#show_game', as: 'show_game_auto_drop_dead'
   get 'auto_drop_deads/:id/show_result', to: 'auto_drop_deads#show_result', as: 'show_result_auto_drop_dead'
