@@ -18,14 +18,14 @@ class UsersController < ApplicationController
     if user
       if user.password == params[:password]
         # session[:user_id] = user.id
-        flash[:notice] = 'Successfully signed in!'
+        flash[:success] = 'Successfully signed in!'
       redirect_to user_path(user.id)
       else
         flash[:alert] = 'Invalid password'
         redirect_to signin_path
       end
     else
-      flash.keep[:alert] = 'Can\'t find your account, please sign up!'
+      flash[:alert] = 'Can\'t find your account, please sign up!'
       redirect_to signin_path
     end
   end
@@ -59,11 +59,12 @@ class UsersController < ApplicationController
     if @user.save
       @user.create_game_history
       # Successfully created the user, redirect to their profile
+      flash[:success] = 'Successfully Logged In!'
       redirect_to user_path(@user)
     else
       # Handle validation errors
       flash[:alert] = 'Failed to create the user'
-      render :signup
+      redirect_to signup_path
     end
   end
 
@@ -83,10 +84,8 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'User Deleted!'
+    redirect_to users_url
   end
 
   private
