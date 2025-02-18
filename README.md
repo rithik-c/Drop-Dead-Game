@@ -17,9 +17,9 @@ A full-stack application to display and run the Drop Dead dice game. Built with 
 - **Cloud Hosting:** AWS
 - **Frontend:** Integrated Rails views enhanced with modern JavaScript and CSS
 
-## 🎥 Demo
+## 🎥 App Preview
 
-_(Demo coming soon!)_
+<img src="public/DropDead-Landing.png" alt="Screenshot of Drop Dead Landing Page" title="Screenshot of Drop Dead Landing Page" width="600"/>
 
 ## 🔨 Set-Up
 
