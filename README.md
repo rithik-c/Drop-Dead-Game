@@ -19,7 +19,7 @@ A full-stack application to display and run the Drop Dead dice game. Built with 
 
 ## 🎥 App Preview
 
-<img src="public/DropDead-Landing.png" alt="Screenshot of Drop Dead Landing Page" title="Screenshot of Drop Dead Landing Page" width="600"/>
+<img src="public/DropDead-landing.png" alt="Screenshot of Drop Dead Landing Page" title="Screenshot of Drop Dead Landing Page" width="600"/>
 
 ## 🔨 Set-Up
 
