@@ -20,6 +20,7 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# Using Aiven MySQL Database (Free Plan - 5GB storage + 1GB ram)
 production:
   adapter: mysql2
   encoding: utf8

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/user/:id', to: 'users#show', as: 'user'
   delete '/signout', to: 'users#signout'
   delete '/user/:id', to: 'users#destroy'
+  post "/guest_login", to: "users#guest_login", as: "guest_login"
 
   resources :users
   resources :game_histories, only: [:show]

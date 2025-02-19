@@ -28,6 +28,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def guest_login
+    # Check if the Guest account exists
+    user = User.find_by(email: "guest@xyz.com")
+  
+    if user
+      # Reuse your existing 'login' method with Guest credentials
+      params[:email] = "guest@xyz.com"
+      params[:password] = "guestpassword"
+      login
+    else
+      # Reuse your existing 'create' method to create a Guest account
+      params[:user] = { username: "Guest", email: "guest@xyz.com", password: "guestpassword" }
+      create
+    end
+  end  
+
   def signup
     # Display the sign-up page
   end
