@@ -151,7 +151,7 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    puma (5.6.9)
+    puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.10)
@@ -254,7 +254,7 @@ DEPENDENCIES
   importmap-rails (= 1.1.0)
   jbuilder (= 2.11.5)
   mysql2 (~> 0.5)
-  puma (= 5.6.9)
+  puma (>= 6.0)
   rails (= 7.2.2.1)
   selenium-webdriver (= 4.2.0)
   sprockets-rails (= 3.4.2)
