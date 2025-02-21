@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get 'auto_drop_deads/:id/show_game', to: 'auto_drop_deads#show_game', as: 'show_game_auto_drop_dead'
   get 'auto_drop_deads/:id/show_result', to: 'auto_drop_deads#show_result', as: 'show_result_auto_drop_dead'
 
+  namespace :system do
+    post 'cleanup', to: 'tasks#cleanup'
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

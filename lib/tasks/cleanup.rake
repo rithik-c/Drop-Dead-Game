@@ -1,8 +1,10 @@
 namespace :db do
-    desc "Remove records older than 30 days"
-    task cleanup: :environment do
-      YourModel.where('created_at < ?', 30.days.ago).delete_all
-      Rails.logger.info "Old records removed."
-    end
+  desc "Remove all records from users, game_histories, and auto_drop_deads"
+  task cleanup: :environment do
+    AutoDropDead.delete_all
+    GameHistory.delete_all
+    User.delete_all
+
+    Rails.logger.info "All records removed from users, game_histories, and auto_drop_deads."
   end
-  
+end
