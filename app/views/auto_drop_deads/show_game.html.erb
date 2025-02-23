@@ -2,12 +2,12 @@
   <style>
     .terminal-output {
       font-family: 'Roboto Mono', 'Courier New', monospace;
-      font-size: 14px;
+      font-size: clamp(12px, 2.5vw, 16px);
       text-align: center;
       font-weight: 900;
       white-space: pre-wrap;
       padding: 10px;
-      width: 80%;
+      width: auto;
       border: 1px solid #333333;
     }
       
@@ -20,14 +20,16 @@
       padding: 0;
       margin-top: 20px;
       margin-bottom: 40px;
+      font-size: clamp(16px, 3vw, 16px);
     }
 
     .container {
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       text-align: center;
-      width: 800px;
+      width: 80vw;
+      max-width: 650px;
       margin: 0 auto;
-      padding: 30px;
+      padding: 4vw;
       background-color: #f7f7f7;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -38,8 +40,9 @@
     .header {
       background-color: #007BFF;
       color: #fff;
-      padding: 20px;
+      padding: 10px;
       border-radius: 10px 10px 0 0;
+      font-size: clamp(16px, 3.5vw, 20px);
     }
 
     .exit {
@@ -55,7 +58,7 @@
       color: #fff;
       padding: 10px 20px;
       border-radius: 5px;
-      font-size: 18px;
+      font-size: clamp(16px, 3.5vw, 16px);
       font-weight: bold;
       background-color: #24659e;
       transition: background-color 0.3s ease;
@@ -63,6 +66,12 @@
 
     .button:hover {
       background-color: #0e4d8c;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
@@ -73,7 +82,9 @@
     </div>
     <%= render @auto_drop_dead %>
     <br><br>
-    <a href="<%= game_history_path(User.find(@user_id).game_history.id) %>" class="button">Go Back</a>
-    <a href="/signin" class="button exit">Exit</a>
+    <div class="button-container">
+      <a href="<%= game_history_path(User.find(@user_id).game_history.id) %>" class="button" style='margin-right: 10px;'>Go Back</a>
+      <a href="/signin" class="button exit">Exit</a>
+    </div>
   </div>
 </body>

@@ -96,3 +96,41 @@
     width: 0; /* End at 0% width (disappear) */
   }
 }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove any extra padding if necessary */
+  text-align: center;
+}
+
+/* Make sure buttons and forms scale properly */
+button, input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%; /* Full width on smaller screens */
+  max-width: 300px; /* Prevents being too wide on large screens */
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Ensure containers don't break layout */
+div {
+  margin: 0 auto; /* Centering */
+}
+
+/* Adjust text sizes */
+h1 {
+  font-size: 1.5em;
+}
+
+/* Improve button positioning */
+button {
+  display: inline-block;
+  width: auto;
+  min-width: 120px;
+  margin: 5px;
+}

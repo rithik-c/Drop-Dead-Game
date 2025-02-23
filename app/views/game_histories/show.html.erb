@@ -16,9 +16,11 @@
       .container {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         text-align: center;
-        width: 800px;
+        width: 80vw;
+        max-width: 650px;
+        min-width: 315px;
         margin: 0 auto;
-        padding: 30px;
+        padding: 4vw;
         background-color: #f7f7f7;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -31,6 +33,7 @@
         color: #fff;
         padding: 20px;
         border-radius: 10px 10px 0 0;
+        font-size: clamp(16px, 3.5vw, 20px);
       }
 
       h1 {
@@ -72,6 +75,7 @@
         font-weight: bold;
         background-color: #e74c3c;
         transition: background-color 0.3s ease;
+        width: fit-content;
       }
 
       .back-link:hover {
@@ -96,13 +100,20 @@
         margin-top: 40px;
       }
 
+      @media (max-width: 600px) {
+        .button-container {
+          flex-direction: column;
+        }
+      }
+
       .input-container {
         display: flex;
         align-items: center;
+        margin: 15px 0px;
       }
 
       .input-field {
-        padding: 10px;
+        padding: 10.5px;
         font-size: 16px;
         border: 1px solid #ccc;
         border-radius: 5px 0 0 5px;
@@ -116,6 +127,7 @@
         border-radius: 0 5px 5px 0;
         font-size: 18px;
         cursor: pointer;
+        margin: 0;
       }
 
       .submit-button:hover {

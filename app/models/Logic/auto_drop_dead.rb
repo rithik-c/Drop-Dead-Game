@@ -17,7 +17,7 @@ module Logic
 	  # Initializes and plays an automated game using specified parameters
 	  def play_game(sides, dice_count, player_count)
 		
-		Logic.game_output = "\n////////////// DROP-DEAD DICE GAME //////////////"
+		Logic.game_output = "\n////// DROP-DEAD DICE GAME //////"
 		player_manager = PlayerManager.new
 		player_manager.create_players(sides, dice_count, player_count)
 		score_manager = ScoreManager.new
