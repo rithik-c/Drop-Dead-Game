@@ -43,4 +43,4 @@ module Logic
 		Logic.game_output
 	  end
 	end
-  end
+end
