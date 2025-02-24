@@ -31,14 +31,9 @@
       .header {
         background-color: #007BFF;
         color: #fff;
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px 10px 0 0;
         font-size: clamp(16px, 3.5vw, 20px);
-      }
-
-      h1 {
-        font-size: 36px;
-        margin: 0;
       }
 
       .game-list {
@@ -60,10 +55,12 @@
         color: #333;
         font-size: 18px;
         font-weight: bold;
+        font-size: clamp(18px, 4vw, 19px);
       }
 
       .date {
         color: #777;
+        font-size: clamp(14px, 3.5vw, 16px);
       }
 
       .back-link {
@@ -71,7 +68,6 @@
         color: #fff;
         padding: 10px 20px;
         border-radius: 5px;
-        font-size: 18px;
         font-weight: bold;
         background-color: #e74c3c;
         transition: background-color 0.3s ease;
@@ -93,11 +89,16 @@
         text-decoration: underline;
       }
 
+      button {
+        min-width: auto;
+      }
+
       .button-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 40px;
+        font-size: clamp(16px, 3.5vw, 16px);
       }
 
       @media (max-width: 600px) {
@@ -113,8 +114,9 @@
       }
 
       .input-field {
-        padding: 10.5px;
-        font-size: 16px;
+        padding: 10.5px 0px 10.5px 10.5px;
+        /* font-size: 16px; */
+        font-size: clamp(15px, 5vw, 16px);
         border: 1px solid #ccc;
         border-radius: 5px 0 0 5px;
       }
